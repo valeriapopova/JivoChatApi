@@ -13,22 +13,22 @@ def homepage():
     webhook = request.get_json(force=False)
     if webhook:
         if webhook['event_name'] == 'chat_finished':
-            r = requests.post(' https://api.ecomru.ru/jivo/chat_finished', json=webhook)
+            r = requests.post(' https://api.ecomru.ru/jivo/webhook_finished', json=webhook)
             return r.json()
         elif webhook['event_name'] == 'offline_message':
-            r = requests.post(' https://api.ecomru.ru/jivo/chat_finished', json=webhook)
+            r = requests.post(' https://api.ecomru.ru/jivo/webhook_offline', json=webhook)
             return r.json()
         elif webhook['event_name'] == 'chat_accepted':
-            r = requests.post(' https://api.ecomru.ru/jivo/chat_finished', json=webhook)
+            r = requests.post(' https://api.ecomru.ru/jivo/webhook_accepted', json=webhook)
             return r.json()
         elif webhook['event_name'] == 'chat_assigned':
-            r = requests.post(' https://api.ecomru.ru/jivo/chat_finished', json=webhook)
+            r = requests.post(' https://api.ecomru.ru/jivo/webhook_assigned', json=webhook)
             return r.json()
         elif webhook['event_name'] == 'chat_updated':
-            r = requests.post(' https://api.ecomru.ru/jivo/chat_finished', json=webhook)
+            r = requests.post(' https://api.ecomru.ru/jivo/webhook_updated', json=webhook)
             return r.json()
         elif webhook['event_name'] == 'call_event':
-            r = requests.post(' https://api.ecomru.ru/jivo/chat_finished', json=webhook)
+            r = requests.post(' https://api.ecomru.ru/jivo/webhook_call_event', json=webhook)
             return r.json()
         else:
             pass
